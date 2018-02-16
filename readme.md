@@ -1,6 +1,8 @@
 # JavaScript30
 
-This is a 30 part vanilla JS project to solidify by JS skills
+This is a 30 part vanilla JS project to solidify JS skills
 
-Grab the course at [https://JavaScript30.com](https://JavaScript30.com)
+To view each part: open HTML in browser
+
+SOURCE: [https://JavaScript30.com](https://JavaScript30.com)
 
