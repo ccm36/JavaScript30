@@ -65,18 +65,38 @@
 
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
-    const category = document.querySelector('.mw-category');
-    const links = Array.from(category.querySelectorAll('a'));
-    const de = links
-                .map(link => link.textContent)
-                .filter(streetName => streetName.includes('de'));
+
+    // TODO: UNCOMMENT TO VIEW LIST IN CONSOLE (ON WIKI WEBSITE)
+
+    // const category = document.querySelector('.mw-category');
+    // const links = Array.from(category.querySelectorAll('a'));
+    // const de = links
+    //             .map(link => link.textContent)
+    //             .filter(streetName => streetName.includes('de'));
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
+    const alphaInventors = inventors
+                    .sort((a, b) => a.last > b.last ? 1 : -1)
+                    .map(inventor => `${inventor.first} ${inventor.last}`);
+    console.table(alphaInventors)
+
+    const alphaPeople = people.sort((a, b) => {
+      const [aLast, aFirst] = a.split(', ');
+      const [bLast, bFirst] = b.split(', ');
+      return aLast > bLast ? 1 : -1;
+    });
+    console.log(alphaPeople);
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+    
+    const instances = data.reduce((acc, item) => {
+      acc[item] ? acc[item]++ : acc[item] = 1;
+      return acc;
+    }, {});
+    console.log(instances)
 
   </script>
 </body>
