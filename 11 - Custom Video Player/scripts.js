@@ -7,7 +7,7 @@ const toggle = player.querySelector('.toggle');
 const skipButtons = player.querySelectorAll('[data-skip]');
 const ranges = player.querySelectorAll('.player__slider');
 
-// Build out functions
+// functionality
 function togglePlay() {
   video.paused ? video.play() : video.pause();
 }
@@ -22,7 +22,11 @@ function skip() {
   video.currentTime += skipTime;
 }
 
-// Hook up event listeners
+function handleRangeUpdate() {
+  video[this.name] = this.value;
+}
+
+// event listeners
 video.addEventListener('click', togglePlay);
 video.addEventListener('play', updateButton);
 video.addEventListener('pause', updateButton);
@@ -30,3 +34,5 @@ video.addEventListener('pause', updateButton);
 toggle.addEventListener('click', togglePlay);
 
 skipButtons.forEach(button => button.addEventListener('click', skip));
+
+ranges.forEach(range => range.addEventListener('change', handleRangeUpdate));
